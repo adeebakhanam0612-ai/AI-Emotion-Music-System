@@ -357,7 +357,8 @@ st.markdown("""
 <div class="glass">  
 <h2>📸 Upload Image</h2>  
 </div>  
-""", unsafe_allow_html=True)  uploaded_file = st.file_uploader(
+""", unsafe_allow_html=True)  
+uploaded_file = st.file_uploader(
 "Upload Your Image",
 type=["jpg", "jpeg", "png"]
 )
