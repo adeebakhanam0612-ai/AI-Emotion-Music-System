@@ -364,7 +364,7 @@ type=["jpg", "jpeg", "png"]
 )
 
 if uploaded_file is not None:
-image = Image.open(uploaded_file)  
+    image = Image.open(uploaded_file)  
 
 st.image(  
     image,  
