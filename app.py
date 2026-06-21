@@ -474,11 +474,11 @@ st.markdown("""
 <div class="glass">  
 <h2>🎥 Capture Live Photo</h2>  
 </div>  
-""", unsafe_allow_html=True)  camera = st.camera_input("Take a picture")
+""", unsafe_allow_html=True)  
+camera = st.camera_input("Take a picture")
 
 if camera is not None:
-
-file_bytes = np.asarray(  
+    file_bytes = np.asarray(  
     bytearray(camera.read()),  
     dtype=np.uint8  
 )  
