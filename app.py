@@ -367,8 +367,8 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)  
 
 st.image(  
-    img,  
-    caption="Uploaded Image",  
+    image,  
+    caption="Uploaded image",  
     use_container_width=True  
 )  
 
