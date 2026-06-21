@@ -316,7 +316,8 @@ font-weight:bold;
 text-shadow: 0px 0px 10px rgba(255,255,255,0.8);'>  
 Detect emotions using AI and get mood-based music recommendations  
 </p>  
-""", unsafe_allow_html=True)  st.markdown("---")
+""", unsafe_allow_html=True)  
+st.markdown("---")
 
 ---------------- SIDEBAR ----------------
 
