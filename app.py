@@ -173,7 +173,7 @@ with col2:
         st.session_state.logged_in = False
         st.session_state.username = ""
         st.rerun()
----------------- CUSTOM CSS ----------------
+# ---------------- CUSTOM CSS ----------------
 
 st.markdown("""
 
