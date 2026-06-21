@@ -14,7 +14,26 @@ st.set_page_config(
     page_icon="🎵",
     layout="wide"
 )
+# ---------------- LOGIN SYSTEM ----------------
 
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+
+if not st.session_state.logged_in:
+
+    st.title("🔐 AI Emotion Music Recommender Login")
+
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+
+    if st.button("Login"):
+        if username == "admin" and password == "admin123":
+            st.session_state.logged_in = True
+            st.rerun()
+        else:
+            st.error("Invalid Username or Password")
+
+    st.stop()
 # ---------------- CUSTOM CSS ----------------
 
 st.markdown("""
@@ -177,6 +196,42 @@ Built using:
 """)
 
 st.sidebar.success("✨ Exhibition Ready AI Project")
+st.sidebar.markdown("---")
+
+page = st.sidebar.radio(
+    "Navigation",
+    ["Dashboard", "Emotion Detector"]
+)
+
+if st.sidebar.button("Logout"):
+    st.session_state.logged_in = False
+    st.rerun()
+
+if page == "Dashboard":
+
+    st.title("📊 Dashboard")
+
+    col1, col2, col3 = st.columns(3)
+
+    col1.metric("Supported Emotions", "7")
+    col2.metric("Total Songs", "70")
+    col3.metric("AI Model", "FER")
+
+    st.subheader("🎵 Music Database Overview")
+
+    st.write("""
+    - Happy Songs: 10
+    - Sad Songs: 10
+    - Angry Songs: 10
+    - Neutral Songs: 10
+    - Fear Songs: 10
+    - Surprise Songs: 10
+    - Disgust Songs: 10
+    """)
+
+    st.info("Select 'Emotion Detector' from the sidebar to use the AI system.")
+
+    st.stop()
 
 # ---------------- DETECTOR ----------------
 
