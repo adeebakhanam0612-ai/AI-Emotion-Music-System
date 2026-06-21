@@ -58,7 +58,7 @@ def login_user(email, password):
         (email, hash_password(password))
     )
     return cursor.fetchone()
-    if "logged_in" not in st.session_state:
+if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
 if "username" not in st.session_state:
