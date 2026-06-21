@@ -306,7 +306,8 @@ st.markdown("""
 <h1 style='text-align:center; font-size:55px;'>  
 🎵 AI Emotion Music Recommender  
 </h1>  
-""", unsafe_allow_html=True)  st.markdown("""
+""", unsafe_allow_html=True)  
+st.markdown("""
 
 <p style='text-align:center;  
 font-size:24px;  
