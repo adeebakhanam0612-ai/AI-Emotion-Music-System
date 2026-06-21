@@ -319,7 +319,7 @@ Detect emotions using AI and get mood-based music recommendations
 """, unsafe_allow_html=True)  
 st.markdown("---")
 
----------------- SIDEBAR ----------------
+# ---------------- SIDEBAR ----------------
 
 st.sidebar.title("🎧 About Project")
 
