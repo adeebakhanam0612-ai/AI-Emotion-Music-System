@@ -10,7 +10,7 @@ import hashlib
 # Import music data
 from backend.music_data import music_recommendations
 
----------------- PAGE CONFIG ----------------
+# ---------------- PAGE CONFIG ----------------
 
 st.set_page_config(
 page_title="AI Emotion Music Recommender",
@@ -299,7 +299,7 @@ section[data-testid="stSidebar"] * {
   
 </style>  """, unsafe_allow_html=True)
 
----------------- TITLE ----------------
+# ---------------- TITLE ----------------
 
 st.markdown("""
 
@@ -340,14 +340,14 @@ OpenCV
 
 st.sidebar.success("✨ Exhibition Ready AI Project")
 
----------------- DETECTOR ----------------
+# ---------------- DETECTOR ----------------
 
 detector = FER(mtcnn=True)
-
+#
 =========================================================
 
-IMAGE UPLOAD SECTION
-
+# IMAGE UPLOAD SECTION
+#
 =========================================================
 
 st.markdown("""
