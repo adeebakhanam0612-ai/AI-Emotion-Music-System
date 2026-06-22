@@ -364,6 +364,7 @@ type=["jpg", "jpeg", "png"]
 )
 
 if uploaded_file is not None:
+    st.write("uploded_file =", uploded_file)
     image = Image.open(uploaded_file)  
 
     st.image(  
