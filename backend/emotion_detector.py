@@ -34,7 +34,10 @@ if len(result) > 0:
     confidence = emotions[top_emotion] * 100
 
     print("\nDetected Emotion:")
-    print(top_emotion)
+    print(repr(top_emotion))
+
+    print("\nAll emotions:")
+    print(emotions)
 
     print("\nConfidence:")
     print(f"{confidence:.2f}%")
