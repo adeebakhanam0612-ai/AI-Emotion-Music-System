@@ -144,10 +144,6 @@ st.sidebar.success("✨ Exhibition Ready AI Project")
 detector = FER(mtcnn=True)
 
 # ========================================================= IMAGE UPLOAD SECTION =========================================================
-st.markdown("""
-<div class="glass"><h2>📸 Upload Image</h2></div>
-""", unsafe_allow_html=True)
-
 uploaded_file = st.file_uploader("Upload Your Image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
@@ -185,12 +181,12 @@ if uploaded_file is not None:
             st.video(song["video"])
     else:
         st.error("❌ No face detected")
+else:
+    st.info("Please upload an image to analyze.")
 
 # ========================================================= CAMERA SECTION =========================================================
-st.markdown("---")
-st.markdown("<div class='glass'><h2>🎥 Capture Live Photo</h2></div>", unsafe_allow_html=True)
-
 camera = st.camera_input("Take a picture")
+
 if camera is not None:
     file_bytes = np.asarray(bytearray(camera.read()), dtype=np.uint8)
     img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
@@ -225,3 +221,5 @@ if camera is not None:
             st.video(song["video"])
     else:
         st.error("❌ No face detected")
+else:
+    st.info("Please capture a photo to analyze.")
