@@ -368,7 +368,7 @@ if uploaded_file is not None:
 
     st.image(
         image,
-        caption = "Uploaded image",
+        caption="Uploaded image",
         use_container_width=True
     )
 
