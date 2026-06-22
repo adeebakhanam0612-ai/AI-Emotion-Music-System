@@ -357,24 +357,28 @@ st.markdown("""
 <div class="glass">  
 <h2>📸 Upload Image</h2>  
 </div>  
-""", unsafe_allow_html=True)  
-uploaded_file = st.file_uploader(
+""", unsafe_allow_html=True)  uploaded_file = 
+st.file_uploader(
 "Upload Your Image",
 type=["jpg", "jpeg", "png"]
 )
 
 if uploaded_file is not None:
-    st.write("uploaded_file =", uploaded_file)
-    image = Image.open(uploaded_file)  
 
-    st.image(  
-        image,  
-        caption="Uploaded image",  
-        use_container_width=True  
-    )  
+image = Image.open(uploaded_file)  
 
-    image_np = np.array(image)  
-    image_cv = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)  
+st.image(  
+    image,  
+    caption="Uploaded image",  
+    use_container_width=True  
+)  
+
+image_np = np.array(image)  
+
+image_cv = cv2.cvtColor(
+    image_np, 
+    cv2.COLOR_RGB2BGR
+)  
 
     result = detector.detect_emotions(image_cv)  
 
