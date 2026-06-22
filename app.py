@@ -398,7 +398,7 @@ emoji_dict = {
         "disgust": "🤢"  
     }  
 
-    emoji = emoji_dict.get(top_emotion, "🙂")  
+emoji = emoji_dict.get(top_emotion, "🙂")  
 
     # Emotion box  
 
