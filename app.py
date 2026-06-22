@@ -152,9 +152,11 @@ if uploaded_file is not None:
 
     image_np = np.array(image)
     image_cv = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
+
+    # Run emotion detection
     result = detector.detect_emotions(image_cv)
 
-    if len(result) > 0:
+    if result and len(result) > 0:
         emotions = result[0]["emotions"]
         top_emotion = max(emotions, key=emotions.get)
         confidence = emotions[top_emotion] * 100
@@ -184,15 +186,18 @@ if uploaded_file is not None:
 else:
     st.info("Please upload an image to analyze.")
 
+
 # ========================================================= CAMERA SECTION =========================================================
 camera = st.camera_input("Take a picture")
 
 if camera is not None:
     file_bytes = np.asarray(bytearray(camera.read()), dtype=np.uint8)
     img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+
+    # Run emotion detection
     result = detector.detect_emotions(img)
 
-    if len(result) > 0:
+    if result and len(result) > 0:
         x, y, w, h = result[0]["box"]
         emotions = result[0]["emotions"]
         top_emotion = max(emotions, key=emotions.get)
