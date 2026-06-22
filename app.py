@@ -372,9 +372,9 @@ if uploaded_file is not None:
         use_container_width=True  
 )  
 
-        image_np = np.array(image)  
+image_np = np.array(image)  
 
-        image_cv = cv2.cvtColor(  
+image_cv = cv2.cvtColor(  
     image_np,  
     cv2.COLOR_RGB2BGR  
 )  
