@@ -353,45 +353,42 @@ detector = FER(mtcnn=True)
 # =========================================================
 
 st.markdown("""
+<div class="glass">
+<h2>📸 Upload Image</h2>
+</div>
+""", unsafe_allow_html=True)
 
-<div class="glass">  
-<h2>📸 Upload Image</h2>  
-</div>  
-""", unsafe_allow_html=True)  uploaded_file = 
-st.file_uploader(
-"Upload Your Image",
-type=["jpg", "jpeg", "png"]
+uploaded_file = st.file_uploader(
+    "Upload Your Image",
+    type=["jpg", "jpeg", "png"]
 )
 
 if uploaded_file is not None:
+    image = Image.open(uploaded_file)
 
- image = Image.open(uploaded_file)  
+    st.image(
+        image,
+        caption="Uploaded image",
+        use_container_width=True
+    )
 
-st.image
-(  
-    image,  
-    caption="Uploaded image",  
-    use_container_width=True  
-)  
+    image_np = np.array(image)
 
-  image_np = np.array(image)  
+    image_cv = cv2.cvtColor(
+        image_np,
+        cv2.COLOR_RGB2BGR
+    )
 
-  image_cv = cv2.cvtColor 
-(
-    image_np, 
-    cv2.COLOR_RGB2BGR
-)  
+    result = detector.detect_emotions(image_cv)
 
-    result = detector.detect_emotions(image_cv)  
-
-    if len(result) > 0:  
-        emotions = result[0]["emotions"]  
-        top_emotion = max(emotions, key=emotions.get)  
-        confidence = emotions[top_emotion] * 100  
-        # ... rest of your logic
+    if len(result) > 0:
+        emotions = result[0]["emotions"]
+        top_emotion = max(emotions, key=emotions.get)
+        confidence = emotions[top_emotion] * 100
     else:
         st.error("No face detected")
-    emoji_dict = {  
+
+emoji_dict = {
         "happy": "😊",  
         "sad": "😢",  
         "angry": "😠",  
