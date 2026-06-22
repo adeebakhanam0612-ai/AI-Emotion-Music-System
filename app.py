@@ -223,7 +223,9 @@ if camera is not None:
         songs = music_recommendations.get(top_emotion, [])
         for song in songs:
             st.markdown(f"<div class='song-card'>🎵 {song['name']}</div>", unsafe_allow_html=True)
-            st.video(song["video"])
+            st.markdown(
+                f"[▶ Play {song['name']}]({song['video']})"
+)
     else:
         st.error("❌ No face detected")
 else:
