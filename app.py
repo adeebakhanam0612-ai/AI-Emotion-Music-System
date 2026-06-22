@@ -382,7 +382,9 @@ if uploaded_file is not None:
         emotions = result[0]["emotions"]  
         top_emotion = max(emotions, key=emotions.get)  
         confidence = emotions[top_emotion] * 100  
-
+        # ... rest of your logic
+    else:
+        st.error("No face detected")
     emoji_dict = {  
         "happy": "😊",  
         "sad": "😢",  
