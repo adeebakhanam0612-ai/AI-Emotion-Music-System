@@ -364,7 +364,7 @@ type=["jpg", "jpeg", "png"]
 )
 
 if uploaded_file is not None:
-    st.write("uploaded_file =", uploded_file)
+    st.write("uploaded_file =", uploaded_file)
     image = Image.open(uploaded_file)  
 
     st.image(  
@@ -374,25 +374,14 @@ if uploaded_file is not None:
     )  
 
     image_np = np.array(image)  
+    image_cv = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)  
 
-    image_cv = cv2.cvtColor(  
-        image_np,  
-        cv2.COLOR_RGB2BGR  
-    )  
+    result = detector.detect_emotions(image_cv)  
 
-    result = 
-detector.detect_emotions(image_cv)  
-
-if len(result) > 0:  
-
-    emotions = result[0]["emotions"]  
-
-    top_emotion = max(  
-        emotions,  
-        key=emotions.get  
-    )  
-
-    confidence = emotions[top_emotion] * 100  
+    if len(result) > 0:  
+        emotions = result[0]["emotions"]  
+        top_emotion = max(emotions, key=emotions.get)  
+        confidence = emotions[top_emotion] * 100  
 
     emoji_dict = {  
         "happy": "😊",  
